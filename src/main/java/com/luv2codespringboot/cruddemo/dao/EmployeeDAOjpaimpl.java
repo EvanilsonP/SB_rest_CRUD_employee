@@ -2,6 +2,7 @@ package com.luv2codespringboot.cruddemo.dao;
 
 import com.luv2codespringboot.cruddemo.entity.Employee;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -18,6 +19,11 @@ public class EmployeeDAOjpaimpl implements EmployeeDAO{
 
     @Override
     public List<Employee> findAll() {
-        return null;
+        // create a query
+        TypedQuery<Employee> theQuery = entityManager.createQuery("from Employee", Employee.class);
+        // execute query and get result list
+        List<Employee> employees = theQuery.getResultList();
+        // return the results
+        return employees;
     }
 }
