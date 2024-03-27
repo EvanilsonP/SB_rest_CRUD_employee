@@ -4,9 +4,11 @@ import com.luv2codespringboot.cruddemo.entity.Employee;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public class EmployeeDAOjpaimpl implements EmployeeDAO{
     // define field for entity manager
     private EntityManager entityManager;
@@ -14,7 +16,7 @@ public class EmployeeDAOjpaimpl implements EmployeeDAO{
     // set up constructor injection
     @Autowired
     public EmployeeDAOjpaimpl(EntityManager theEntityManager) {
-        this.entityManager = theEntityManager;
+        entityManager = theEntityManager;
     }
 
     @Override
